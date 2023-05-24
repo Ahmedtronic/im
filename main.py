@@ -27,7 +27,7 @@ def index():
     if request.method == 'POST':
         image = request.files['fileup']
         newimage = Image.open(image)
-        newimage.save(newimage.filename)
+        #newimage.save(newimage.filename)
         
         #similar_images = st.get_similar_images(image_path=newimage.filename, number_of_images=10)
         #os.remove(newimage.filename) 
@@ -35,7 +35,7 @@ def index():
         #for index in similar_images:
         #    images.append(similar_images[index])
 
-        return jsonify({"Testing": newimage.filename})
+        return jsonify({"Testing": str(type(newimage.filename))})
     else:
         return jsonify({"Error": "No Images"})
             
